@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JAVA</title>
+ <!-- favicon -->
+   
+ <link rel="icon" type="images/x-icon" href="favicon.png" />
+    <!-- web-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- owl carousal -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="main-wrapper">
+<!-- Page Preloader -->
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-3">
+         </div>
+       </div>
+       </div>
+       <div class="col-md-9">
+                <div class="name-wrapper">
+                    <h1 class="name">JAVA</h1>
+                    </div>
+                    </div>
+        </header>
+        
+</div>
+        
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Features of JAVA
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Simple : As it is derived from C++, it makes it simple to understand , has also removed pointer, an automatic garbage collector for unwanted objects.
+        <br>
+        OOPS  : Class -> Object -> Inheritance -> polymorphism -> abstraction -> encapsulation.
+        <br>
+        Platform Independent : Java file when compilied gets converted into class file(byte code) which is understandable to JVM(macOS/Linux/Windows). this JVM is different for different OS.
+        <br>
+        Secured : it doesn't give user to work on pointer and doesnt run directly on OS but runs on JVM which makes it secured.
+        <br>
+        Robust : No pointer. strong memory management systen. garbage collector. exception handling.
+        <br>
+        Architectural Neutral : 32-bit : 4 byte and 64-bit : 4 byte . eg for int.
+        <br>
+        Portable : after compiling it can be run on any system .
+        <br>
+        High performance : bcz of byte code. 
+        <br>
+        Distributed : can be used on distributed network .
+        <br>
+        Multi-threaded : can run the thread program concurrently not parallelly
+        <br>
+        Dynamic : classes are loaded on demand.
+        <br>
+        Why it is interpreted language ? 
+        <br>
+        java code > compiles : class file . class file get loaded by class-loader , bytecode verifier ->verifies the byte code and gives to interpreter. interpreter reads each line of byte and give to JRE to executes. 
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          JVM,JDK,JRE
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+       JVM <br> Java Virtual Machine , as name says it is only virtual present
+       it provides a runtime env where java bytecode is executed.
+       <br>
+       JRE <br> Java Runtime environment , it consist of set of libraries and other files which JVM uses at runtime to execute the 
+       java code.
+       <br>
+       JDK<br>
+       Java Development KIT , it is a set of required softwares for developing the java application.
+       <br>
+       JVM is inside the JRE, JRE has JVM + set of libraries and it is inside JVM, JVM consist of JRE(which has JVM) and development files like
+       compiler, debugger etc.
+		<br>
+		note : just to run the java code .jar it doesnt requried JVM , JRE is enough.  
+       </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Variable
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+      Reserved area allocated in memory :
+      there are 3 types of variable : 1.local 2.instance 3.static
+      <br>
+      <pre>
+      class ABC  
+      { 
+      int b ;     => this is instance variable , it is not shared among objects 
+      
+      static int a ;   => this is static variable , shared among objects.
+      
+      void method() 
+      { 
+       int c;  => this is local variable. 
+        } 
+       } 
+     
+      </pre>
+      <br>
+      Data Type : 
+      <br> 
+      Primitive == byte(1 byte), short(2 bytes) , int (4) , long(8) , float (4), double(8), boolean(1 bit), char(2)
+      <br>
+      Non-Primitive == String , arrays ,classes, interface. 
+      <br>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          OOPS
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+      Object oriented Programming <br>
+      <b>Object</b> :it has data and its behaviour , all things in java are objects. to tell java to create objects we need to give him blueprint.<br>
+      <b>CLass</b> : this are nothing but blueprint which helps java to create objects.it shows structure of objects.<br>
+      <b>Inheritance</b> : to gain the properties of parent object , inheritance is used. its called re-usability <br>
+      types of inheritance : 1. single : base class <- sub-class ;  2. Multilevel : grandparent-class <- parent-class <- child class . <br>
+      3 . hierarchical : Parent class ; parent class <- sub-class1 ; parent class <- sub-class2. 2 classes inherit the same parent class <br>
+      Multiple inheritance is not allowed in java , it occured when 1 class try to inherit the 2 different class , a confusion can arrise from which class a method has to be called.
+      <br>
+      <b>Polymorphism</b> : means many forms . two types : Runtime poly (method overridding) and compile time poly( method overloading)
+      <br> 
+      2 method same name with different parameters in same class is method overloading, can be determine at compile. <br>
+      2 method with same name and same paramters in 2 different class which inherits is called method overridding , can be determine ar run.
+      <br>
+      <b>Abstraction</b> : hdding the complexity and showing only required functionality , with abstract method 0 to 100% abstration can be done.
+      with interface 100% can be achieved. the abstract method should be implemented in base class. 
+      <br> <b>Encapsulation</b> : wrapping code and data . eg: BEAN class.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Objects and Construction, Static and final keyword, This and Super keyword.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+      <b>Object Creation</b> : there are 3 ways by which we can create object. 1) new keyword : ClassA A = new ClassA(); <br> 
+      2)new Instance() method : Class c = Class.ForName("ClassA");  ClassA A =(ClassA)c.newInstance(); class.forname method will only load the class in JVM , to create object we need use newInstance() method.
+      <br> 3)clone() method: it creates a duplicate object.
+      <br> <b>Construction</b>: a method which has a same name as class name and returns nothing is called constructor. it can be used for initaition of something at the time of object
+      creation. it is called when object is created.even if we dont write the constructor complier will create the constructor. 
+      Constructor areof 2 types : no-arguments = which doesnt have parameters , parameterized = which are having parameter.
+      <br>Constructor cannot be abstract,static , final and synchronized. 
+      <br>
+      <b>Static keyword</b> : Static keyword can be used for 1)variable : it gets shared among all the objects , memory efficient. 2)method : it is mostly used of changing static
+      variables, it cannot change non-static variable. this and super cannot be used bcz it cannot called non-static method too. 3)static block : it can be used for initializing
+      and gets called by jvm before main method. 4)static class : it is used for nested class and helps in calling static methods of outer class.
+      <br> class outer { <br> static nestedclass { ... } <br> } 
+      <b>final keyword</b> : Final keyword can be used for 1)variable: it makes variable value final, once declared cannot be changed. if it is not initialized , it can
+      only be initialized using constructor. 2)method : final method cannot be overridden but can
+      be called . it helps when u dont want ur method to be overridden so just declared ur method as final. 3)class : we cannot extend the final class but to use it we have 
+      to make it tight coupled. like in which class u hvto call those final class method just create object inside the class.
+      <br> 
+      <b>This keyword</b>: this keyword is used to point to the same class like this() this will point to current class object. this.a this will point to current class varaible name a
+      this.methdd() this will point to current class method. if we are using this() in method it has to be the first statement.
+      <br><b>Super Keyword</b> : super keyword is used to point to the parent class ,super(); calls the constructor of parent class , super.A this will call the parent class
+      variable name A. super.method() this will callthe method of parent class. 
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Java Access Modifier and Object Class, Abstract class and Interface, Wrapper Class.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+      <br><b>Access Modifier :</b>
+      <img alt="AccessModifier" src="AccessModifier.png">
+      <br>
+      public : it will be accessible all over the project . Protected: it is accessible in current package and those class outside
+      of package which extends the class. Default: it is accessible only in current package. Private: it is only for specifed class.
+     <br>
+     <b>Object class</b> : it is the parent class of all classes in java , it has few methods which we can use it .<br>
+     getClass() = returns the class name of the given object. <br>
+     hashCode() = returns the hashcode of the object. <br>
+     equals() = compares the value of the object. <br> 
+     clone() = it creates the exact copy of the original object.<br>
+     toString() = it returns the string representation of the object.java internally calls this method for internal purpose  even if dont write it.<br>
+     notify() = used for waking up the thread. <br>
+     notifyAll() = it wakesup all the thread that are waiting. <br>
+     wait(),wait(milisec),wait(milisec,nanosec) = waits for given time.<br>
+     finalize() = this methods is called by jvm for destroying the object after usage.we can also call it by overriding it and it 
+     should be declared as protected. 
+     <br>
+     <b>Abstract</b> : it is used for achieving abstraction, the level of abstraction depends on code but can also achieve 100%.
+     An abstract method needs to be implemented in sub class.<br>
+     An abstract class can have constructor, data member, non-abstract method, abstract method, final methods(so that impementation wont changed.).
+     An abstract class can extent abstract class , no need to implement the abstract method but has to get implemented in child class.
+     <br>
+     <b>Interface</b>:
+     it is use for achieving 100% abstraction. how? it allows only abstract method. even if we write non-abstract methods
+     internally java will convert this method in abstract, and normal variables into public static and final by default. 
+     <br> 
+     void show() = > public abstract void show();<br>
+     int value=5; => public static final int value=5;<br>
+     A Interface which dont have methods init are called as marker interface : eg:cloneable.<br>
+     An interface extends interface , an class extends class and class implements interface.
+     From Java8 we can write static method in interface so that it cannot be overridden.
+     we can also write default method in interface. <br>
+     <b>Wrapper class</b> : 
+     wrapper class is used for converting primitive data type to objects and vice versa .
+     <br> eg : int <-> Interger , boolen <-> Boolean , char <-> Character 
+     <br> Autoboxing : conversion of primitive data type to object is called autoboxing.
+     eg : int i =5; Interger A=i; (internally it gets converted.)
+     <br> unboxing : conversion of objects to primitive data type is called unboxing.
+     eg: Integer i = new Integer("5");   int a =i; (automatically gets converted.)
+     <br> Why conversion required ? = a data transfered over the network has to be an object in java .
+    
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          Arrays, Strings
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+      <div class="card-body">
+     <br><b>Array</b>: its a non-primitive data type , it means that it stores the reference values and not the actual values.
+     eg: int i[5];  String s[]; . this can stores only similar type of data. 
+     <br>it is useful for accessing random data. once the size of array declared it cannot be changed at runtime. 
+     <br>
+     how to declare array: int[] i; int []i; int i[];  this is only declaration .
+     <br> for initializing int i = {1,2,3};
+     <br><b>String</b>:
+     String is array of character , it can also be called as string is a object that represent sequence of character. 
+     we can fetch any char for string as it is sequence of charachter using charAt method. 
+     <br> String can be created by 2 ways : 1. String s = new String("anychar"); 2.String s="hello";
+     <br> String are always stored in string constant pool. so when we create String s1 = "Hi"; and String s2="Hi"; this will point 
+     same pointer and can be see only 1 string is stored in constant bcz both are having same string.
+     String constant pool is in heap. 
+     <img alt="String" src="String_constantpool.png">
+     <br>the hashcode of s1 and s2 is same but s4 is different , and they are created in string constant pool , String s3 is a new object.
+     the outside box is heap memory.
+     <br> Everytime the string literal is created, jvm first checks the string value in string constant pool. if the string value is
+     already present then it will just point the variable to the string value. 
+     but when string new keyword is used for creating the string it will create a new object for every string .
+     <br> String is immutable it means it can't be destroyed. 
+     <br> ways to create string ? 1) String class String s1 = new String("hello"); 2) Stringbuffer class 3) StringBuilder class.
+     <br> StringBuffer : 2 threads cannot access this object simultaneously that is the reason why it is less efficient,it can 
+     be called as thread safe. 
+     <br> StringBuffer : 2 threads can call/use/access this objects simultaneously, that is why it is more efficient can be called
+     as not threadsafe.
+     <br>StringBuffer and StringBuilder are mutable means it can modified.
+     <br> Below are few string methods : 
+     <br>char CharAt(int index) : it will return the character present at the specified index. String s="Java"; charAt(1)=a ; charAt(0)=J;
+     <br> int length() : it gives the length of string. String s="Java"; s.length() = 3;
+     <br> String substring(int start,int end) : it will return part of string as needed. String s="Java"; s.substring(1,2)=av;
+     substring(int start)=from start to end of string . substring(start,end)=start to end . substring(end,start)=exception;
+     <br> boolean contains(char charsequence) : it will return true or false if charsequence is present in string it will return true
+     or else false. String s="Java" ; s.contains("a")= true; s.contains("A")=false.
+     <br>String joins();this method will create a string with delimiter like dash,comma,space. string s = string.Join("-","Hi","Hello");
+     s=Hi-Hello;
+     <br>Boolean Equals(obj): this will return true or false depending on the string match result.String s1="JAVA";String s2="JAVA";
+     String s3="java"; s1.equals(s2)=true; s2.equals(s3)=false.
+     <br>boolean isEmpty() : it checks if the string is empty or not and accordingly returns true(empty) or false(not empty).
+     <br> String concat() : it returns string , it helps to concat that is joins 2 string . String s1="hi"; String s2="java"; 
+     String s3=s1.concat(s2); s3=hi java;
+     <br>String replace(str1,str2): it will replace the str1 in provided string with str2. String s="Java"; s.replace("a","A");
+     s=JAvA;
+     <br>boolean equalIgnorecase(obj str): it will return the true or false depending on string match. it will not consider the case.
+     String s1="JAVA" String s2="java"; here s1.equalIgnoreCase(s2)=true.
+     <br>String arrayString[] = split(regex); : this method will seperate the provided string using the regex and place the strings
+     in the array of strimg. String s="it is java"; String[] s1=s.split("\\s"); forloop=s1 = it ;is ;  java;
+     Split(regex,limit) : this will set the limit as how many string are needed in array.s1.split("\\s",2);
+     <br>output = it<br>is java
+     <br> String intern(): this is used to create a exact copy of string in string constant pool. the hashcode will be differnt. 
+     when we create a string like String s= new String("Java"); it is going be created in heap memory not in string constant pool.
+     using String s2=s.intern(); , s2 wil be created in string constant pool.
+     <br>int indexOf(char) : it will return the position of char in the string . String s="Mandar"; s.indexOf("a")=1 ;
+      s.indexOf("a",3)=4 ; 3 is nothing but start of search string . 
+      <br> String toLowerCase() : it will help to lower the string case for all char.
+      <br> String toUpperCase() : it will help to upper the string case for all char.
+      <br> String trim(): this method will clear the space from start of string and end of string .String s="  JAVA  ";
+      s.trim() will give output for s as "java".
+      <br>String valueOf() : this methods helps us to convert any type of data like int,float,long to string .
+      <br> == and equals() : == will compare the hashcode of string, equals method will compare the value of string .
+      <br> <b>StringBuffer and Stringbuilder</b>: both are faster than String , it is mutable string that means it can modified
+      at runtime. When created without string value(StringBuffer sf = new StringBuffer();) a capacity of 16 is allocated to object and get increase accordingly with internal
+      formula (capacity*2)+2. <br>
+      if created using string value a capacity exact to value to allocatd to object. eg: Stringbuilder sf = new Stringbuilder("Java");
+      <br> below are some methods available in stringbuffer and stringbuilder class :
+      considering the StringBuffer sf= new StringBuffer("Hello"); as a object as example.
+      <br>object append() : it is use to concat the string. sf.append("_hi"); sf= Hello_hi
+      <br>object insert() : for inserting string at given location sf.insert(2,"AB"); sf=HeABllo
+      <br>object replace() : for part of string with new one. sf.replace(1,3,"ABC"); sf= HABClo
+      <br>object delete() : it will help us to delete part of string .sf.delete(1,3); sf=Hlo
+      <br>object reverse(); it helps us to reverse the string . sf.reverse(); sf=olleH
+      <br>int capacity() : it will return the capacity of string. sf.capacity() =16;
+      <br>char charAt(int index): it will return the character placed at given location
+      <br>int length() : returns the length of string .sf.length()=4
+      <br>object substring(int start),object substring(int start,int end) :this method will give the part of specified string .
+      sf.substring(1,2)=el
+          <br> 
+      </div>
+    </div> 
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEight">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          Exception
+        </button>
+      </h5>
+    </div>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+      <div class="card-body">
+      <br> it is a mechanism to handle runtime errors.by using this exception handling we can avoid the errors and allow normal flow
+      of the program. 
+      <br>There are two types of exception : checked Exception and unChecked Exception. Checked exception can be called as compile 
+      time exception and unChecked exception can be called as runtime exception. in simple words Checked Exception are used for handling
+      the compile time errors such as IOException,SQLException . and UnChecked Exception are used to handle runtime errors such as
+      ArrayIndexOutOfBoundException,AirthmaticException. 
+      <img alt="exception" src="exception.png">
+      <br>We need to write try catch block to handle the exceptions.we can catch mutliple exceptions in catch block. we need to write
+      the block of code which can throw error in try block. the sequence of exceptionn in catch block should follow protocols.
+      starting from child class and then towards parent class.
+      Try block is necessary but catch and finally block are optional. we can write try block with finally or catch. either finally or
+      catch should be present with try .
+      <pre>
+      <br> try 
+      { 
+      int a[]={1,2,4}; 
+      s.o.p(a[5]); 
+      } 
+      catch(ArrayIndexOutOfBoundException e) 
+      {
+      print e 
+       } 
+       catch(Exception e) 
+       { print e 
+       }
+      </pre>
+      <br> we can have nested try-catch block as well in case of more clarity on errors.
+      <br><b>Finally block :</b> this block is used to execute type of code that is mandatory whether the exception occured or not 
+      this block will get executed. it can be usefull to clean up the spaces or closing the connection towards file or db.only 1 finally
+      block is allowed.
+      <br><b>Throw keyword :</b> this throw is used for explicitly throwing an exception. eg <br>
+      if(age<18) { throw new Exception("invalid age"); }
+      <br><b>Throws keyword :</b>It is used to declare an exceptions. we need to write this on method signature level.
+      eg: void methodName() throws IOException.
+      <br><b>difference in try-catch and throws :</b> on try-catch normal flow of the execution does not get disturbed and continues
+      even errors occured. but when using throws keyword the normal flow of execution get disturbed means when error occurs scripts
+      gets failed.
+      <br><b>Custom Exception : </b> we can create our own exception and can use it. follow is way to create a custom exception.
+      we need to extend the class to Exception.
+      <br><pre>class InvalidAuthority extends Exception  { 
+      invalidAuthority(String s)  { 
+       Super(s); 
+        } 
+       } 
+      </pre>
+      with above code we can see we are extending class to exception as well we are calling super to call exception constructor to pass
+       the message. 
+       in different class we have to mentioned as throw new invalidAuthority("invalid authority"); 
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingNine">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+          Threads, Synchronized, Inner class and Anonymous class, Serialization, Upcasting
+        </button>
+      </h5>
+    </div>
+    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+      <div class="card-body">
+      <br> Threads is are smallest unit of process and they run independently in process, there can be multiple threads in a process.
+      and all threads run separately without affecting each other. if 1 thread get failed other threads still continues to run.
+      the threads shares a common memory of the same process. Execution of threads are faster.
+      even if we are not using thread concept in our programs, Java internally creates threads for its own purpose.
+      <img alt="threads" src="Threads.png">
+      <br>in above diagram it can understood that 1 process is having 3 threads which has code and its data and file which are resource
+      are common to use but every thread is having its own register , stack and counter to  maintain and run .
+      <br><b>Why is is light-weight?</b> : creation of memory space is taken care by process not threads which makes it faster and light-weight.
+      switching between threads is also faster which is called context-switching.
+      <br>State:
+      <br> New -> Runnable : Start() method makes threads change it state from new to runnable.
+      <br> Runnable -> Running : run() .
+      <br> Running -> Non-Runnable (Blocked) : wait(), suspend(),sleep(),yield(),interrupt().
+      <br> Non-Runnable -> Runnable() :resume(),notify(),notifyAll().
+      <br> Running -> Terminated : stop(), run methods gets completed.
+      <br>Which thread should execute? : this is decided by thread-scheduler which is present in jvm and runs the thread
+      according to preemptive or time-slicing .
+      <br> calling a thread twice : it will give you exception called illegalthreadstateexception ., once thread is running we cant start the thread again.
+      eg: t.start();t.start();
+      <br> <b> Synchronized : </b> Synchronized is a method by which we can restrict threads to execute or use the resource one at a time. when using 
+      schronized to data or method that resource becomes thread-safe.
+      <br><b>Inner Class :</b> Inner class is a class which is define inside a class or interface. the main advantage of inner
+      class is it can access private data member or method.
+      <br> <pre>
+      class outerclass {
+      data member; 
+      methods ;
+      class innerClass
+      {
+      calling private methods of outerclass;
+      }
+      }
+      
+      </pre>
+      <br><b>Anonymous inner class</b> : A class which has no name is called anonymous class. it should be used when we have to 
+      override a method of class or interface.
+     	<pre> Abstact class Person { 
+     	abstract void eat();
+     	}
+     	class P {
+     	p.s.v.m (String s[])
+     	{
+     	Person per = new Person(){          // this is the anonymous class , per is a object of anonymous class created by jvm
+     	void eat()
+     	{
+     	s.o.p("hi anonymous inner class");
+     	}
+     	};
+     	per.eat();
+     	}
+     </pre> 
+		<br>
+		<b>Serialization :</b> 
+		If we want to transfer any data on a network , then the data cant be transfered as it is , we need to convert the data into byte stream. 
+		this byte stream is done on only object, so we need to convert data into object . this is called serialization.
+		data -> Object : serialization , object -> data : de-serialization. this done using wrapper class.
+		note : static data can't be serialized.
+		<br> Transient : if we dont want specific data to be serialized from a class we can mentioned the data as Transient. 
+		eg : transient int a;
+		<br> <b>Upcasting : </b>
+		<br> this is done when we create reference object of parent class to base class .
+		<br> class A  = new class A(); -> this is creation of base class which is parent class. 
+		<br> class B = new class B(); -> this is a normal object creation of sub class.
+		<br> class B = new class A(); - > this B is a reference object created for class B from class A;
+		it is called loose-coupling.<br>
+      </div>
+    </div>
+  </div>
+  
+   <div class="card">
+    <div class="card-header" id="headingTen">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+          Collections
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+      <div class="card-body">
+      <br> it is framework with list of class and interface which inside algorithm for storing manipulating and deleting data as per request in java.
+      there are 3 types of collection : List and Queue and Set.
+      all are having same methods,.
+      <br> below are some known methods: 
+      <br> Boolean add(element e) : for adding a element data in collection.
+      <br> Boolean addAll(collection c) : for adding a complete set of data in form of collection on in similar type of collection.
+      <br> Boolean remove(element c) : for deleting specific element from the collection.
+      <br> Boolean removeAll(collection c) : it will delete a group of data specificed in collection.
+      <br> Boolean retainAll(collection c) : remove all element except the element present in collection c. 
+      <br> int size() : it will return the int with size of collection.
+      <br> void clear() : it will remove all the element.
+      <br> Boolean contains(element e) : it will check if the element is present in the collection or not.
+      <br> Boolean containsAll(collection c) : it will check if the complete set of element that is c is present in collection or not.
+      <br> Boolean isEmpty() : checks if the collection is empty or not.
+      <br> Object toArray() : to convert a collection into a simple array.
+      <br> Object equals() : to match two collection.
+      <br> int hashcode() : to get the hashcode of the collection.
+      <br> <b>List: </b>
+      <br> <b> ArrayList:</b> it can contain duplicate values. maintain insertion order . can retrieve any index faster. manipulation takes time.
+      ArrayList{String} list = new ArrayList{String}(); list.add("A"); 
+      <br> <b> LinkedList:</b> the linkedlist is kind of doublylinkedlist it is same as arraylist the only difference is it is faster as it uses doubly linkedlist.
+      manipulation is faster.
+      LinkedList{String} list = new LinkedList{String}(); list.add("A");
+      <br><b>Set :</b>
+      <br> <b>Hashset :</b> Hashset stores only unique values in set. it also allows us to store null value. the data of hashset is store in hashtable. 
+      it means it uses hashing technique. because it uses hashing technique searching an element is faster.
+       Hashset{String} set = new hashset{String}(); set.add("A");
+       <br><b>Treeset :</b> treeset is same as hashset. it uses hashtable. it has only unique value.difference is treeset doesnt allow null value.
+       <br><b>LinkedHashSet:</b> it is also same as hashset. allows null values and unique values only. internally uses linked technique for manipulation.
+       <br><b>Map</b>
+       <br>Map contains data in a form  of key and value pair. each key and value pair is a entry. A map is useful for searching, deleting, updating value on basis of key.
+       Map allows duplicate values but doesnt allow duplicate keys. Map{key,value}
+       <br><b>Treemap : </b> doesnt allow null key but allows null values. doesnt maintain any order.
+       <br> <b> Hashmap and linkedHashmap:</b> doesnt allow null key as well null values. maintains and insertion order.
+       <br>Hashmap and hashtable are both same the only difference is hashtable is thread-safe and hashmap is not a thread-safe.
+       <br><b>Map traversing :</b>
+       <pre>
+       Method 1 :
+       Map m = new HashMap();
+       m.put(1,"A"); 
+       m.put(2,"B");
+       
+       Set s = m.entrySet();                --> this will convert hashmap to set for traversing and using iterator for iterating.
+       iterator it =s.iterator();           --> it will create objct for iterating.
+       while(it.hasNext())
+       {
+       Map.Entry entry = (Map.Entry)it.next();     ---> once it is iterating , we are converting the set back to map using map.entry
+       s.o.p(entry.getKey() + entry.getValue());    -- > using getKey() and getValue() method for retrieving key and value pair.
+       } 
+       
+       Method 2 : 
+       Map m = new hashmap();
+       m.put(1,"A"); 
+       m.put(2,"B");
+       
+       for(Map.Entry entry:m.entrySet())
+       {
+       s.o.p(entry.getKey() + entry.getValue());
+       }
+       </pre>
+       <br>
+       <b>Methods in Map :</b>
+       <br>put(obj key,obj value) : it helps to add data in map .
+       <br>putAll(Map map) : it will add all data at once.
+       <br>putIfAbsent(key,value) : it will first check whether key is present or not .if not present then only it will add.
+       <br>remove(key) : it will the specific key.
+       <br>remove(key,value) : it will remove if the value matchs the given key
+       <br>clear() : resets the map.
+       <br>containsValue(obj value): check if map contains value or not.
+       <br>containsKey(key) : check if map contains key or not.
+       <br>get(key): returns the value for given key.
+       <br>int hashcode : returns the hashcode for the map.
+       <br>isEmpty(): checks if map is emtpy or not.
+       <br>replace(key,value) : replace the key with the value. it wil return false if key is not present.
+       <br>replace(key,oldvalue,newvalue): replace the key with the newvalue only if key and old value is matched.
+       <br>int size(): it will returns the size of map.
+       
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingEleven">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+          Java 8
+        </button>
+      </h5>
+    </div>
+    <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
+      <div class="card-body">
+       <b>Interface default and static methods:</b>
+       <br> Now in interface we can add methods as default methods or static methods which are non-abstract.
+       <br>Default method : this method has a implemention and can be overridden. to call this default method we can create a object of interface and call it.
+       <br> <pre>
+       interface sample { 
+       default void print()
+       {
+       S.o.p("prijnt");
+       }
+       }
+       class a {
+       p.s.vm(String a[])
+       {
+       sample s = new sample();
+       s.print();
+       }
+       }
+       </pre>
+       <br>Static method : this method gives implementation but cannot be overridden. to call this method we dont hv to create a object of interface ,
+       with interface name we can call it directly. sample.staticmethodanme();
+       <br><b>Lambda Expression :</b>
+       <br> the interface with only one abstract class is a called functional interface. simple way of calling functional interface
+       <pre>
+       interface A{
+       public void a();
+       }
+       class classA implementation A {
+       void a()
+       {
+       print("implmenting interface method inclass");
+       }
+       
+       p.s.v.m(String a[])
+       {
+       classA obj = new classA();
+       obj.a();
+       }
+       }
+       </pre>
+       <br> lambda is used to decrease the code as we can see above. how to use lambda is shown below:
+       <pre>
+       interface A{
+       public void a();
+       }
+       class classA implementation A {
+       p.s.v.m(String a[])
+       {
+       A obj = ()-> { 
+       S.o.p("implmenting interface method inclass");
+       };
+       obj.a();
+       }
+       }
+       </pre>
+       <br> Instead of creating a method lambda helps us to write the code of functional interface in much less and simpler way.
+       <br> with zero parameter : obj=()->{};
+       <br> with 1 parameter : obj=(a)->{}; or obj=a->{}; or (if it has return type) obj=a->(a.substring(1,2)); orelse obj=(a,b)->(a+b);
+       <br> with 2 parameter : obj=(a,b)->{};
+       <br><b>For Each :</b> this is a new feature which can be used for iterating the collections.
+       <br> Arraylist al = new Arraylist();
+       <br> al.add("a"); al.add("b");
+       al.forEach(al->s.o.p(al));
+       <br>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingtwelve">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsetwelve" aria-expanded="false" aria-controls="collapsetwelve">
+          Java 9
+        </button>
+      </h5>
+    </div>
+    <div id="collapsetwelve" class="collapse" aria-labelledby="headingtwelve" data-parent="#accordion">
+      <div class="card-body">
+       <b>Private methods in interface:</b>
+       <br> we have chance now to write the private method in interface, which cannot be called by the other class. this method has to be accessible using the default method in
+       interface. default method will have a line of calling a private method , this default method can be called which indirectly callsthe private method.
+       <br><b>Try with resource:</b>
+       <br> When we use the try with some resource like file or DB we don't need to close the resource with this feature. this will automatically closes the resource
+       once it is used.
+       ex: fileInputStream fin = new fileinputStream();
+       <br> try(fin) {  } 
+       <br> catch(IOException e)  {   }
+       <br><b>Factory method</b>
+       <br> As collections are dynamic in nature , we can make them static so that once declared it cannot be added with more elements. 
+       we can make the use of method called .of();  List objlist = List.of(1,2,3,4); 
+       <br> this will give error if anyone tries to add the new element to list.
+       <br><b>java.util.Set.of() creates an immutable set of a given elements</b>
+       <br>Set strKeySet = Set.of("key1", "key2", "key3");
+       <br>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingthirteen">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsethirteen" aria-expanded="false" aria-controls="collapsethirteen">
+          Java 10
+        </button>
+      </h5>
+    </div>
+    <div id="collapsethirteen" class="collapse" aria-labelledby="headingthirteen" data-parent="#accordion">
+      <div class="card-body">
+       <b>Variable var:</b>
+       <br>Previously we used to declare the variable as int a=2; String s="name"; 
+       <br> but now in java 10 we can now use var eg: var a =2 ; var s="Name";  . But if we only write var a; this will give you error. 
+       <br><b>copyOf()</b>
+       <br>with this method we can create a exact copy of any collection  . arraylist a = copyOf(oldColection);
+  
+      </div>
+    </div>
+  </div>
+  
+   <div class="card">
+    <div class="card-header" id="headingfourteen">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefourteen" aria-expanded="false" aria-controls="collapsefourteen">
+          Java 11
+        </button>
+      </h5>
+    </div>
+    <div id="collapsefourteen" class="collapse" aria-labelledby="headingfourteen" data-parent="#accordion">
+      <div class="card-body">
+       <b>New methods available for String class:</b>
+       <br>isBlank, lines, strip, stripLeading, stripTrailing, and repeat\
+       <br> isBlank() :Returns true if the string is empty or contains only white space codepoints, otherwise false.
+       <br> strip() :Returns a string whose value is this string, with all leading and trailing white space removed.
+       <br>repeat() :Returns a string whose value is the concatenation of this string repeated count times.
+       <br><b>New method for writting and reading file</b>
+       <br> readString() : this wil help to read the string from given file and returns complete data in string.
+       <br> <b>Switch expression:</b>
+       <br> typeOfDay = switch (dayOfWeek) {
+       <br> case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> "Working Day";
+            case SATURDAY, SUNDAY -> "Day Off";<br>
+            };
+       <br>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  
+ 
+
+<!-- jquery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!--owl carousal-->
+<script src="js/owl.carousel.min.js"></script>
+<!--theme script-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
