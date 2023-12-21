@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>TestNG</title>
+<!-- favicon -->
+   
+ <link rel="icon" type="images/x-icon" href="favicon.png" />
+    <!-- web-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- owl carousal -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="main-wrapper">
+<!-- Page Preloader -->
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-3">
+         </div>
+       </div>
+       </div>
+       <div class="col-md-9">
+                <div class="name-wrapper">
+                    <h1 class="name">TESTNG:Testing framework Next Generation </h1><br>
+                    <h1 class="name">JUnit </h1>
+                    </div>
+                    </div>
+        </header>
+        
+</div>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Features of TestNG
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      Annotation    :testNG provides a huge list of annotation which can be useful for deciding the execution of method at what stage.
+       			     @BeforeSuite, @AfterSuite, @BeforeClass, @AfterClass, @BeforeTest, @AfterTest, @BeforeMethod, @AfterMethod, @BeforeGroup, @AfterGroup.
+      XML Based     :running and test according to user configuration is done through testng.xml file, user can decide which runs to be excluded or included, which should be 
+       		         executed parallel.
+       		         How to create a testNG.xml file? right click on project move to testNG->convert to testNG. this will automatically creates a sample testNG file.
+      Depends       :User can use this feature to mark a test to be dependent on group or test and decide whether to execute or not based on dependent test.
+      Parameters    :User can pass the value from testng file to test using this parameters field.
+      Data Provider :This data provider feature helps user test the same test to be executed on multiple data for data testing.
+      Reporting     :testng generates the XML and HTML reports.
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Include/Exclude tags and regex
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+     	TestNG provides the feature of enabling and disabling the test cases. We can disable or enable test cases for executing.
+     	We need to provide the include or exclude tag on method level or group level. providing include and exclude inside method tag will work for methods.
+     	providing include and exclude inside the group will work for groups.
+     	Ex: if we want to test the whatsapp chat feature in regression but we dont want to test the group chats feature, we can user exclude tag and add name of method under
+     	    name field.This will execute the whatsapp chat feature excluding the groupChat.
+     	<code>
+     	&lt;suite name="Regression"&gt;  
+          &lt;test name="whatsapp chats"&gt;  
+            &lt;classes&gt;  
+                &lt;class name="chats"&gt;
+                   &lt;methods&gt;  
+                      &lt;exclude name = "groupChats"/&gt;  
+                   &lt;/methods&gt;
+                &lt;/class&gt;   
+            &lt;/classes&gt; 
+          &lt;/test&gt;  
+        &lt;/suite&gt;
+     	</code>
+     	<br>
+     	Tags : &lt;exclude name = "groupChats"/&gt;  
+     	       &lt;include name = "groupChats"/&gt;  
+       </pre>
+       <Pre>
+       Regex: how to run the test cases using regex.
+       TestNG allows to run the test cases by providing the regex pattern to select which test or groups to execute.
+       Ex: if we want to execute all the test which has method name ending with chats.
+       <code>
+     	&lt;suite name="Regression"&gt;  
+          &lt;test name="whatsapp chats"&gt;  
+            &lt;classes&gt;  
+                &lt;class name="chats"&gt;
+                   &lt;methods&gt;  
+                      &lt;include name = ".*Chats"/&gt;  
+                   &lt;/methods&gt;
+                &lt;/class&gt;   
+            &lt;/classes&gt; 
+          &lt;/test&gt;  
+        &lt;/suite&gt;
+     	</code>
+     	<br>
+     	Tags : &lt;exclude name = "personal.*"/&gt;  
+     	       &lt;include name = ".*Chats"/&gt;  
+       </Pre>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Grouping
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      We can mark multiple test under particular group using testng annotation and can be included or excluded the group according to need in testng.xml file.
+      how to add test to particular group:  we can add group name inside group parameter inside @test annotation.
+      <code>
+      public class whatsappTest{
+      @test(groups={"regression","smoke"})
+      public void personalChatTest(){
+      }
+      @test(groups={"regression"})
+      public void groupChatTest(){
+      }
+      }
+       public class whatsappSettingTest{
+      @test(groups={"regression","smoke"})
+      public void dataPrivacyTest(){
+      }
+      @test(groups={"smoke"})
+      public void profileTest(){
+      }
+      }</code>
+      <br>
+      How to run particular group:
+     	if user wants to run only smoke test , we can provide the smoke group name under include tag inside run and groups. this group name gets searched over all the suite 
+     	across all testm user can execute groups from different class as well which gives better test execution options. 
+     	Considering above two classes and mentioned in below testng.xml. 
+     	classes to be executed is .*Test which is regex which means all classes ending with test will be considered.
+     	which groups to run is mentioned as smoke, thats why personalChatTest() in whatsappTest , dataPrivacyTest() and  profileTest() in class whatsappSettingTest will be executed.
+      <code>
+      &lt;suite name="Regression"&gt; 
+        &lt;groups&gt;  
+           &lt;run&gt;  
+              &lt;include name="smoke"/&gt;  
+           &lt;/run&gt;  
+        &lt;/groups&gt;  
+          &lt;test name="whatsapp chats"&gt;  
+            &lt;classes&gt;  
+                &lt;class name=".*Test"&gt;
+                &lt;/class&gt;   
+            &lt;/classes&gt; 
+          &lt;/test&gt;  
+        &lt;/suite&gt;
+      </code>
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Annotation and Attribute
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+       <code>
+      &lt;suite name="Regression"&gt; 
+        &lt;groups&gt;  
+           &lt;run&gt;  
+              &lt;include name="smoke"/&gt;  
+           &lt;/run&gt;  
+        &lt;/groups&gt;  
+          &lt;test name="whatsapp chats"&gt;  
+            &lt;classes&gt;  
+                &lt;class name="personalChat"&gt;
+                &lt;class name="GroupChat"&gt;
+                &lt;/class&gt;   
+            &lt;/classes&gt; 
+          &lt;/test&gt;  
+           &lt;test name="Setting"&gt;  
+            &lt;classes&gt;  
+                &lt;class name="profile"&gt;
+                &lt;class name="downloads"&gt;
+                &lt;/class&gt;   
+            &lt;/classes&gt; 
+          &lt;/test&gt;
+        &lt;/suite&gt;
+      </code>
+      @BeforeSuite  : This tag method will get executed before all suite mentioned in xml file. a testng can have multiple suite' 
+      @AfterSuite   : This tag method will get executed after all the suite test are executed.
+      @BeforeTest   : A suite can have multiple test and this tag method will get executed before each test, so if there are 2 test defined so this tag will get executed 2 times.
+      @AfterTest    : This tag method will get invoke after each test is completed.
+      @BeforeClass  : This tag method will be executed before each class is started.we can multiple class under test, if there are 3 classes defined then this tag will executed 3 times.
+      @AfterClass   : This tag method will get invoke after each class is completed its all test execution.
+      @BeforeMethod : This tag method code will be executed before each @test method.
+      @AfterMethod  : This tag method code will be executed after each @test method.
+      @BeforeGroups : This tag will be executed only once before a group.
+      @AfterGroups  : This tag will be executed only once after a group. 
+       </pre>
+       <pre>
+      Annotation attribute: 
+      description  = @Test(description="This is regression test")
+                     user can give the description of the test which can be seen in reports.
+      dependsOn    = @Test(dependsOnMethods= {"whatsappSettingProfileTest"})  
+                     Provide the method name on which this test is dependent, this will not get executed if the dependent
+                     method gets failed.   we can pass multiple method name.
+      timeOut      = @Test(timeOut=500) 
+      				 Marking the timeout of 500 milisec means the test case will automatically fails if it exceeds 500 milisec. 
+      priority     = @Test(priority=1)  
+                     When no 'priority' attribute is specified then the TestNG will run the test cases in alphabetical order. 
+                     The priority can hold the integer values between -5000 and 5000.
+                     If there are 3 test with priority as -2500,0,25 and 80 then the execution sequence will be 0,25,80,-2500.
+      enabled      = @Test(enabled=false)  
+                     User can mark particular test as disabled with tag enabled as false.this test will not get executed.
+      groups       = @Test(groups= {"regression"})  
+                     we can add test to a group with any name, we can add test to as many groups we needed with comma separated.                             
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Paramters and data providers
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      We can pass the required from testNG file also with the help of parameters tag feature of testNG.
+      In following example we have pass the type of operating system on which whatsapp need to be tested. We need to add name and value as attribute.
+      The same name should be used in annotation parameter over the required method as below.
+      We can add this parameter tag on suite level or test level. below we have added in suite level means the OS will be same for all test.
+      If we have 5 different values we need to add 5 separate parameter tags, but in class method we can add all parameters name with comma separated. 
+      <code>
+      &lt;suite name="Regression"&gt;
+       &lt;parameter name="OS" value="IOS" /&gt;
+        &lt;groups&gt;  
+           &lt;run&gt;  
+              &lt;include name="smoke"/&gt;  
+           &lt;/run&gt;  
+        &lt;/groups&gt;  
+          &lt;test name="whatsapp chats"&gt;  
+            &lt;classes&gt;  
+                &lt;class name=".*Test"&gt;
+                &lt;/class&gt;   
+            &lt;/classes&gt; 
+          &lt;/test&gt;  
+        &lt;/suite&gt;
+        
+        public class whatsapp{
+        @Parameters({"OS"})
+        public void chatTest(String operatingSystem){
+        System.out.println(operatingSystem);                // this will print IOS which is taken from testNG file.
+        } }
+      </code>
+       </pre>
+       <pre>
+       Data providers
+       It is used for data testing where user wants to run the functionality with different data like 20 data's or 30 data or more.
+       We can add as many data we want. we need to create a method which return the objects containing the data.
+       We need to add each and every data in matrix or we can use for loop and retireve the data from testData or any other source and store it in object.
+       <code>
+       @DataProviders                                 //need to provide tag.
+       public Object[][] getData()
+       {
+       Object[][] data = new Object[3][2];            //here 3 represents rows and 2 represents column  [row][column].
+       data[0][0] = "User1";
+       data[0][1] = "Password1";
+       
+       data[1][0] = "User2";
+       data[1][1] = "Password2";
+       
+       data[2][0] = "User3";
+       data[2][1] = "Password3";
+       returns data;
+       }
+       </code>
+       How to catch the above data in test.
+       If the dataProvider is in another class then we needto write in below format.
+       @Test(dataProvider = "methodName", dataProviderClass = dataProviderClassName.class)
+       <code>
+       @Test(dataProviders="getData")              // this is name given as same as above method name given. this method test will run 3 times as number of rows in data is 3.
+       public void instaLogin(String user, String pwd)
+       {
+       clickLogin(user,pwd);
+       }
+       </code>
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Assertion
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      Asserts are available in testNG as well in JUnit. both are used for same purpose as to do validation with expected and actual.
+      Assertion are of two types: Soft Assertion and Hard Assertion
+      But soft assertion is only available with testNG.
+      difference between soft and hard assert: Hard assert will stop and execution if it fails whereas soft assert will continue to 
+      test next script even after failing. Soft and hard assert provides same method for validation.
+      follow below link for assert methods in details:
+      <a href="https://www.javadoc.io/doc/org.testng/testng/latest/org/testng/Assert.html">Java Doc assert testNG</a>
+      How to use soft and hard assert?
+      Hard assert:
+      import org.testng.Assert;
+      	Assert.assertEquals(originalTitle, expectedTitle);
+      Soft assert:
+      import org.testng.asserts.SoftAssert;
+      SoftAssert softassert = new SoftAssert();
+      softassert.assertEquals(originalTitle,expectedTitle);
+       </pre>
+       <pre>
+       JUnit also provides a assert method with only hard assertion as type.
+       how to use?
+       import org.junit.Assert;
+       Assert.assertEquals(str1, str2);
+       <a href="https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html">org.junit assert</a>
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- jquery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!--owl carousal-->
+<script src="js/owl.carousel.min.js"></script>
+<!--theme script-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
