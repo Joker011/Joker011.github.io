@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>BDD Cucumber</title>
+<!-- favicon -->
+   
+ <link rel="icon" type="images/x-icon" href="favicon.png" />
+    <!-- web-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- owl carousal -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="main-wrapper">
+<!-- Page Preloader -->
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-3">
+         </div>
+       </div>
+       </div>
+       <div class="col-md-9">
+                <div class="name-wrapper">
+                    <h1 class="name">BDD Cucumber </h1>
+                    </div>
+                    </div>
+        </header>
+        
+</div>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Installation
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      required Dependencies:
+               1. cucumber-core          : consist of core file required for cucumber implementation
+               2. cucumber-testng        : if we are using testng and requires cucumber to understand and use testng assertion or other features of testng
+               3. cucumber-junit         : same as above if we are using junit
+               4. cucumber-extentsreport : To generate report through cucumber in form of extents report
+               5. cucumber-java          : for core base technology
+      required Plugins: 
+               1. cucumber for java
+               2. Gherkin         
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Terminology
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+     What is Gherkin? It is a language thats lets us describe the software behavior to be understandable by dev/QA/stakeholder.
+     Cucumber is a framework used for achieving BDD (Behavior Driven Development)   
+     Below are some terminology:
+         1.Feature file    :This file is having all user stories(Test cases) written in gherkin language to be executed which we call it as a Scenario.
+                            This file can have one or more scenario written. There can have multiple feature file in the project to divide it into functionality and group
+                            the scenario functionality wise.
+         2.Runner file     :This file is useful for running the test for cucumber.
+         3.step definition :This file has all the implementation for the scenario. This file can also be divided into different file as per functionality.
+     Below are some keywords in Gherkin:
+         1.Feature           : It is used to describe the feature file test purpose or how is going to be tested.
+         2.Description       : It has detail information about the feature file like what is going to be tested, what is going to be validated.this can be written in multiple lines.
+         3.Background        : The code which is to be executed before each test which we can call as common prerequisite to all scenario are written in background in gherkin language.
+         4.Rule              : from version6. It is used to provide or set some rules to all the scenarios. Ex: Rule User should have a caseID.
+         2.Scenario          : Test cases are nothing but scenario and are started with scenario keyword which states the testcase name. This will not have any examples.
+         3.Scenario Outline  : Test cases written with scenario outline will have multiple data to be tested. it will also have the testcase name or small description
+         4.Given             : sets up the pre-condition.
+         5.When              : User action are written.Take the action.
+         6.Then              : Observe the expected output. write the validation in simple terms verifies the result of the action with assertion
+         7.And               : We can attach this with When as well Then , it can behave as extra action or extra validation.
+         8.But               : To do negative validation.
+         9.*                 : This can be treated like any keyword to given,when,then,and,but. gherkin will only execute it normally.
+         
+         Example:
+         Given User opens the XYZ application
+         When User logs into the application
+         Then User validate the homepage
+         But User should not see any error message
+         
+         Given User opens the XYZ application
+         When User logs into the application
+         And User navigated to Profile page
+         Then User validate the page is navigate to profile
+         And User validate the user name on profile page
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Runner File, StepDefinition file
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      Runner file gets decided whether we are using testng or junit for execution. we can create runner file for testng as well for junit. Both are almost 99% same.
+      Runner file is nothing but the execution point for cucumber, we can run cucumber sceanarios through runner file.
+      
+      Below is format of Runner file.
+      
+      package cucumberTest;
+
+      import org.junit.runner.RunWith;
+      import cucumber.api.CucumberOptions;
+      import cucumber.api.junit.Cucumber;
+
+      @RunWith(Cucumber.class)
+      @CucumberOptions(
+		               features = "src/test/features",
+		               glue={"stepDefinition"},
+		               plugin = {"pretty"},
+		               tags="@Smoke_CON_Mexico",
+		               monochrome=true
+		               )
+      public class TestRunner {
+
+       }
+       
+       Below are some paramters we can use inside CucumberOptions tag:
+       dryRun,features,glue,tags,monochrome,plugin,strict.
+       <b>dryRun</b> : dryRun option can either set as true or false. If it is set as true, 
+                it means that Cucumber will only check that every Step mentioned in the Feature File has corresponding code written in Step Definition file or not.
+                Example : dryRun = true
+       <b>features</b>: It helps cucumber to locate all the features file for the project. Example :features = "src/test/features"
+       <b>glue</b> : It helps cucumber to locate all the step definition for the project. Example :glue = "src/test/stepDeinition"
+       <b>tags</b> : User can provide the tags to be executed or skipped using this options. We can add multiple tags too.
+              Example: tags={"@SmokeTest"}
+              There are two things in multiple tags 1.And and 2.Or.
+              OR operator is used when we need to run multiple tags irrespective of their result. if 1st tag scenario got failed, 2nd scenario should be tested.
+              Example : tags= {"@SmokeTest, @RegressionTest"}
+              AND operator is used when we need to run multiple tags considering their result. if 1st tag scenario is failed then 2ns scenario tag should not be invoked for execution.
+              Example : tags= {"@SmokeTest", "@RegressionTest"}
+              We can also ignore the tags by using ~ symbol. Example: tags={"@SmokeTest", "~@RegressionTest"}
+      <b>monochrome</b> : It has to set as true or false. if it is set as true then the console output is more in readable format but 
+                          if it set as false the output is not readable encoding as per cucumber.
+                          by default the option is set to false because of which we need to add this tag as monochrome = true
+      <b>plugin</b> : This option is used for reporting , we can set the type of reporting format by using this tag. there are different options available as below.
+               Pretty: Prints the Gherkin source with additional colors and stack traces for errors.
+                       Example : plugin = {"pretty"}
+               HTML: This will generate a HTML report at the location mentioned in the for-matter itself.
+                     Example : plugin = {"html:Folder_Name"}
+               JSON: This report contains all the information from the gherkin source in JSON Format. 
+                     This report is meant to be post-processed into another visual format by 3rd party tools such as Cucumber Jenkins.
+                     Example : plugin = {"json:Folder_Name/cucumber.json"}
+               JUnit: This report generates XML files just like Apache Ant JUnit report task.
+                      This XML format is understood by most Continuous Integration servers, who will use it to generate visual reports.
+                      Example : plugin = { "junit:Folder_Name/cucumber.xml"}
+               We can combine the report as well : plugin = { "pretty", "html:target/cucumber-reports" } 
+               <a href="https://www.toolsqa.com/selenium-cucumber-framework/cucumber-extent-report/">Extent report</a>
+       </pre>
+       <pre>
+       Step Definition:
+        All Scenario written in feauture file are mapped using stepdef file. There are two ways in which we can write the stepdef.
+        1. using normal simple methods 2.using lamda 
+        1. Examples :
+                    public class stepdefinition { 
+                    
+                    @Given("^User enter valid username and password$")
+                    public void loginToApp(){
+                    // code here
+                    }
+                    }
+         2.Using Lambda
+                     public class stepdefinition implements En {  
+                     
+                     public stepdefinition(){
+                     
+                     Given("^User enter valid username and password$", () ->{
+                     //code here;
+                     });
+                     Then("^User validate the data (.*)$", (String data) ->{
+                     //code here;
+                     });
+                     }
+                     }         
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Hooks, Tagged Hooks, Priority of hooks
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      Hooks are scripts which is executed before and after each scenario
+      We need to use two tags @Before and @After from package cucumber.api.java.After;cucumber.api.java.Before;
+      Example :
+      @Before
+      public void beforeCode(){
+        System.out.println("This will run before the Scenario");
+      }	
+	
+	  @After
+      public void afterCode(){
+        System.out.println("This will run after the Scenario");
+      }        
+    
+      We can provide any name to the method. common usage is @before :Starting a webdriver,Setting up test data,Setting up browser cookies
+      @after : Killing the webdriver, Clearing the test data,Closing DB connections.
+       </pre>
+       <pre>
+       Tagged Hooks:
+       Hooks are executed before and after each scenario but what if we need to execute unique code before and after certain scenarios.
+       This tagged hooks helps to write some common code which will be executed only before and after certain/specific scenarios.
+       Examples: @Before("@ScenarioTagName")  ,@Before("@Smoke")
+                 @Before("@First,@Third")   ,  @Before("@Module1,@module2") 
+       Priority of hooks:
+       Ordering also works the same way but the only difference is that it required an extra parameter. 
+       This extra parameter decides the order of execution of the certain hook.
+       @Before(order = int) : This runs in increment order, means value 0 would run first and 1 would be after 0.
+       @After(order = int) : This runs in decrements order, means apposite of @Before. Value 1 would run first and 0 would be after 1.          
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Parameters and Datatables
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+  		<b>Parameters without examples</b>:
+  		We can pass the required parameters from the feature scenario. in step def we can catch the data and use it.
+  		examples: When User login with "user@mail.com" and "Password90"
+                  Then User validate homepage      
+         in StepDef :
+         Type1 : When("User login with {string} and {string}", (String string, String string2) -> {
+                             // Write code here that turns the phrase above into concrete actions   });     
+                We are taking the parameter directly it as a string.
+         Type2 : When("^User login with \"([^\"]*)\" and \"([^\"]*)\"$", (String arg0, String arg1) -> {
+                                                                                                        });         
+                We are using the regex to handle the parameter. And can also be written as below
+                When("^User login with (.*) and (.*) $", (String arg0, String arg1) -> {});  
+                
+         <b>parameters with Examples</b>:
+            We can take the parameters from the examples section and also it is useful for multi data testing, This can achieved using scenario outline.
+            example: 
+                   Scenario Outline: testing json
+                    When User login with "&lt;UserName&gt;" and "&lt;Password&gt;"
+                    Then User validate homepage
+
+                   Examples:
+                  |UserName| Password |
+                  |djs@jg  | paswrod23|
+                  |rgj@jsg | segjrej23|   
+                 
+            Here with above example we can see we are taking the username and password from the Examples and also we are passing two set of data and can pass as many user need.
+            By Using Examples scenario outline , cucumber will execute this whole testcase two times because of two set of data and takes care of loop internally only.
+            The way the need to be catch in stepDef is same  
+            Type1 : When("User login with {string} and {string}", (String string, String string2) -> {
+                             // Write code here that turns the phrase above into concrete actions   });     
+                We are taking the parameter directly it as a string.
+            Type2 : When("^User login with \"([^\"]*)\" and \"([^\"]*)\"$", (String arg0, String arg1) -> {
+                                                                                                        });         
+                We are using the regex to handle the parameter. And can also be written as below
+                When("^User login with (.*) and (.*) $", (String arg0, String arg1) -> {});                                                                                                            
+       </pre>
+       <pre>
+       <b>Datatables</b>:
+                        Cucumber allows us to take data in form of collection also incase of there are more data.
+                        Example : Then User validate homepage
+                                  |name|
+                                  |surname|
+                                  |phone number|
+                       consider we need to do the validation on homepage with multiple data,in that case we can write in above manner and this data can be treated as a
+                       collection List&lt;E>, List&lt;List&lt;E>>, List&lt;Map&lt;K,V>>, Map&lt;K,V> or Map&lt;K, List&lt;V>>. E,K,V must be a String, Integer, Float,Double, Byte, Short, Long, BigInteger or BigDecimal.  
+                       
+                       Step def: Then("^User validate homepage$", (io.cucumber.datatable.DataTable dataTable) -> {
+			                                     List&lt;String> datalist = dataTable.asList();
+			                                     datalist.forEach(s->System.out.println(s));   // we can write our own logic
+			                                     System.out.println(datalist.get(0));  // for accessing particular data
+		                              });
+		              We can convert this dataTable object into collection as list or maps as given above. need to convert the datatable into collection manually 
+		              convert manually with 'asList/asLists/asMap/asMaps'
+		              dataTable.asList()   = this will convert the list in List&lt;String>
+		              dataTable.asLists()  = This will convert into List&lt;List&lt;String>>   
+		              dataTable.asMap()    = This will convert into   Map&lt;K,V>
+		              dataTable.asMaps()   = This will convert into List&lt;Map&lt;K,V>>
+		              
+		              Note : When we are using Map we need to add column name so that it can retrieve the data with name of column
+		              Example:
+		                        Then User validate homepage
+                                |firstName|LastName|phoneNumber|                // it stores as a key
+                                |joe      |KOA     |47538      |                // this is 1st map ,stores in form key and value, key are column and value are data
+                                |mat      |MAT     |47538      |                // this is 2nd map
+                                
+                                As  the above data is having mutliple data with mutliple map so we need to treat as a List of Map.
+                                stepdef :Then("^User validate homepage$", (io.cucumber.datatable.DataTable dataTable) -> {
+			                                         List&lt;Map&lt;String,String>> datalist = 	dataTable.asMaps(String.class,String.class);
+			                                         System.out.println(datalist.get(0).get("firstName"));               });           
+       </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- jquery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!--owl carousal-->
+<script src="js/owl.carousel.min.js"></script>
+<!--theme script-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
