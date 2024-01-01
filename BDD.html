@@ -369,6 +369,52 @@
     </div>
   </div>
   </div>
+<div id="accordion5">
+    <div class="card">
+        <div class="card-header" id="headingSix">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Run test parallel using cucumber testng runner file
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+            <div class="card-body">
+      <pre>
+      We can run the test parallel using the runner file which is a testng runner file.
+          We need to extend AbstractTestNGCucumberTests class file and write a method which will call super scenarios method.
+          Example:
+          import io.cucumber.testng.AbstractTestNGCucumberTests;
+          @CucumberOptions(
+                       features = "src/test/features",
+		               glue={"stepDefinition"},
+		               plugin = {"pretty"},
+		               tags="@Smoke_CON_Mexico",
+		               monochrome=true
+          )
+          public class TestNGRunner extends AbstractTestNGCucumberTests{
+                  @override
+                  @DataProvider(parallel=true)
+                  public Object[][] scenarios()
+                  {
+                       return super.scenarios();
+                  }
+          }
+
+          with the help of above code we can run the test parallel.
+          which test will run parallel? : 1. If tags provided is having only 1 scenario and only 1 examples, Then only 1 test will run
+                                             it means only 1 browser will be opened.
+                                          2. If tags provided is having only 1 scenario with multiple examples consider 3 examples.
+                                             then 3 browser will get opened and 3 examples will be executed parallel.
+                                          3. If tags provided is having 2 different scenario, 1st scenario is having 2 examples and
+                                             2nd scenario is having 3 examples. Then 5 browser will get opened and all test will get executed parallel.
+       </pre>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
   <!-- jquery -->
 <script src="js/jquery-2.1.4.min.js"></script>
 <!-- Bootstrap -->
