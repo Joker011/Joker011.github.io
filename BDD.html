@@ -151,7 +151,7 @@
       Runner file gets decided whether we are using testng or junit for execution. we can create runner file for testng as well for junit. Both are almost 99% same.
       Runner file is nothing but the execution point for cucumber, we can run cucumber sceanarios through runner file.
       
-      Below is format of Runner file.
+      Below is format of Runner file for JUnit.
       
       package cucumberTest;
 
@@ -170,7 +170,21 @@
       public class TestRunner {
 
        }
-       
+       Below is format of Runner file for TestNG. for TestNG we need extends the class
+
+       package Runner;
+       import io.cucumber.testng.AbstractTestNGCucumberTests;
+       import io.cucumber.testng.CucumberOptions;
+
+       @CucumberOptions(
+               plugin = {"pretty"},
+               features = "src/main/java/Feature",
+               glue = "classpath:stepDefinition",
+               tags = "@basicAPI"
+       )
+       public class RunCucumberTest extends AbstractTestNGCucumberTests {
+       }
+
        Below are some paramters we can use inside CucumberOptions tag:
        dryRun,features,glue,tags,monochrome,plugin,strict.
        <b>dryRun</b> : dryRun option can either set as true or false. If it is set as true, 
