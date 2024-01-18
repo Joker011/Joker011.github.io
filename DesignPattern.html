@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Design Patterns</title>
+<!-- favicon -->
+   
+ <link rel="icon" type="images/x-icon" href="favicon.png" />
+    <!-- web-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- owl carousal -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="main-wrapper">
+<!-- Page Preloader -->
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-3">
+         </div>
+       </div>
+       </div>
+       <div class="col-md-9">
+                <div class="name-wrapper">
+                    <h1 class="name">Java Design Patterns</h1>
+                    </div>
+                    </div>
+        </header>
+        
+</div>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Single Responsibility pattern
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      Type: SOLID principle
+      before Problem: class will multiple responsibity which leads to get modified again and again.
+                     this re-modification of class after successful unit test of class will lead to bugs.
+      Single responsibility says a class should have only one responsibility.
+      Ex: if web-automation. the step-definition should have responsibility of only connecting the bdd line to the method(code).
+          the class should not have code or object creation.
+          there should be object manager to create only object.
+          A class with database should handle only database related code.
+      Advantage: readable, maintainable.
+      Disadvantage: by separating the responsibility the objectManger goes on creating object again and again for same class
+                    whenever request comes. this leads to slowness of java by allocating deallocating spaces by creating object.
+      Solution: we need to use singleton design pattern by keeping SRP.
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordiontwo">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Singleton Pattern
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordiontwo">
+      <div class="card-body">
+      <pre>
+      Type: Creational Design Pattern
+      before problem: User ends in creating lot of object for same class which leads in java to waste its time in
+                      memory management in allocating deallocating spaces by creating object and destroying it.
+       
+      Singleton patterns makes sure that the only one and one object is created always for the class.
+      Whenever the java gets 2nd time request for object creation it first check whether already object is created
+      if it is already created it simple returns the object.
+      Ex; 
+      Class Animal{
+      
+      private Animal animal;            // private object of the class.
+      
+      private Animal(){                 // by making constructor no one can access the constructor.
+      }                                    which leads to no object creation. 
+      public Animal getAnimal()
+      {
+        if(animal == null){                // it checks whether the object is null, if null it will create a new object and returns      
+        animal = new animal ; 
+        returns animal;
+        }
+        
+        return animal;                    // if object is not null , it will come here and simply returns the object      
+      } 
+      }      
+      
+      the above is correct but has a problem when  2 threads tries to get the object. this is not thread safe.
+      This problem can be solved using synchronization.
+      
+      if(animal == null){
+        synchronization(this) {
+         if(animal == null){                     
+        animal = new animal ; 
+        returns animal;
+        }
+        }
+      }  
+      
+      if two threads for which object is not created enters if condition and waits in que at block.
+      one of the thread get permission to enter the block and checks again if object is null and goes and creates a new 
+      object. When 2nd object gets the permission to enter the block it check whether the object is null and this time
+      object is not null and does not goes inside the if condition and just simply returns the object.
+      
+      Advantage: efficient memory usage.
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+   <div id="accordionthree">
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Factory Design Pattern
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionthree">
+      <div class="card-body">
+      <pre>
+      Type: creational Design Pattern
+      Before problem: when there are 2 3 sub-class of 1 parent class(can be abstract or interface) and at runtime only 1 class object is required, java creates object for all
+                      class leading to memory usage which is of no use.
+                      solution is to tell java to create only 1 object which is needed.and not to create other class object.
+       This can be solve using factory pattern, as name says it manufactures the object which is required at runtime.
+       factory will return the required object specified by end user at runtime. based on user input.
+       this factory has the responsibility of creating only the object, this helps us to not to worry about object creation.
+       how? 
+       user need to pass the name of class which is required.
+       Class AnimalFactory {
+       public Animal getObject(String name)
+       {
+          if(name.equals("Dog"))
+          {
+            return new Dog();
+          }
+          else if(name.equals("Cat"))
+          {
+           return new Cat();
+          }
+       }
+      }
+      user calls this method as 
+      Animal is parent class, Dog and Cat are subclasses.
+      animal.getObject("Dog");
+      
+      With this name of Dog , Dog object will be created.
+      
+      Advantage: reduce time execution as objection creation is decided at runtime.
+                 Loose coupling, robust code.
+                 focus more on object creation rather than implementation.
+       Disadvantage: The factory class is having if elseif block to return the object, if tomorrow some other classes are added
+                     then we need to extend this elseif block, so if there 10 class which we need object then there should be
+                     10 elseif blocks.
+                     Issue 1: there are lot of elseif block.
+                     Issue 2: we are breaking the SOLID principle as O says open for expansion and closed for modification
+                              here we are making modification to the factory class.
+      Solution: we need to use abstract factory design pattern.
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+    <div id="accordionfour">
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        Strategy Design Pattern
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionfour">
+      <div class="card-body">
+      <pre>
+      Type: Behavioral Design Pattern
+      Before problem: when a parent class has two or more sub classes and extends there property.
+                      if extends those property as well which it doesnt needs. when a new class is created again same issue.
+                      more code duplicates.
+      we can decide the strategy to be called at runtime using this approach.
+      It allows us to change the behavior of the algorith at runtime.
+      ex: 
+      interface payment{ void calc();}
+      class creditcard implmenent payment{ void calc{}}
+      class dbitcard implement payment{ void calc{}}
+      class paymentStrategy { 
+      payment payment;
+      payment setPaymentStrateg(payment payment)
+      { 
+     this.payment = payment ;
+      }
+      
+      user will call setPaymentStrateg(new debitcard())
+      setPaymentStrateg(new creditcard())
+      now future if we get any extra payment type there is nothing modify we just need to create a class
+      ex: class phonePe implmenent payment{ void calc{}}
+      and thats it and tell user to select phonepe at frontend.
+      If we want to enhance this pattern we can add factory pattern to decide which strategy we need to use.
+      Advantage: decides strategy at runtime helps to executes compile and runtime faster.
+                 easy to scale.
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- jquery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!--owl carousal-->
+<script src="js/owl.carousel.min.js"></script>
+<!--theme script-->
+<script src="js/scripts.js"></script>
+</body>
+</html>

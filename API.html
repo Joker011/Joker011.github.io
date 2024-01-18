@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>API</title>
+<!-- favicon -->
+   
+ <link rel="icon" type="images/x-icon" href="favicon.png" />
+    <!-- web-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- owl carousal -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="main-wrapper">
+<!-- Page Preloader -->
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-3">
+         </div>
+       </div>
+       </div>
+       <div class="col-md-9">
+                <div class="name-wrapper">
+                    <h1 class="name">API (Application Programming Interface) </h1>
+                    </div>
+                    </div>
+        </header>
+        
+</div>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Why API? and basic terminology
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      <pre>
+      API helps different programming languages to communicate with other.
+      WebPage(client side, developed in Java)---> Application Server(Server side, developed in Java) --> Database.
+      WebPage is developed in java connects with Database to fetch data through application server which is also developed in Java.
+      The connection is possible as it is developed in Java.
+      Now a days WebPage are developed using different technology then if above WebPage gets re-developed in angular then 
+      it will not be able to connect to application server which is Java.
+      WebPage(developed in multiple tech:angular,typescript,javascript n more) --> API --> Application Server(developed in Java)-->DB.
+      This Webpage communicates with API which can accept any language and connects it to application server.
+      </pre>
+      <pre>
+      Terminology
+      1. GET : Retrieves data from the server without modifying it.
+      2. POST : User to add new data to the server.
+      3. PUT/PATCH : Modifies existing data on the server.Put typically replaces the entire resource, while patch updates only specific fields.
+      4. DELETE : Removes data from the server.
+      
+      Path Parameters:
+      Path parameters are variable parts of a URL path. 
+      They are typically used to point to a specific resource within a collection, such as a user identified by ID.
+      Query Parameters:
+      Query Parameter is used to sort/filter the resources.
+      Query Parameters are identified with ?
+      
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordiontwo">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          GET,POST,PUT,DELETE automation
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordiontwo">
+      <div class="card-body">
+      <pre>
+      Automation:
+      RestAssured.baseURI
+                         This baseURI variable is used to set the base url of the API to test.
+                         Once this is set, all api testing will internally use this url.
+      Then there are 3 things given(), when(), then()
+      given() is used to set the pre-requiste things such as the query param, path param,header, body.
+              we can also log all the logs using log().all()
+      when() is used to place a call for api. call such as get(url),post(url),put(url),delete(url) .
+      then() is used to perform the assertion if required, such as we can test the status code or message in response body.
+             we can also extract the response.   
+      
+      equalTo() method is used to validate the message is same or not.
+      statusCode(200) we can pass any code for validation.
+      header(key,value) it will validate the header content with given key.  
+      asString() a response extracted from API call is not string we need to convert it into string with this method. 
+      queryParam() It is used to add any query parameters required to make a api call.
+                   It will look like http://www.someAPI.com/employee/add/?key=XZA
+                   key = XZA is a queryParameter.
+                   We can add query parameter by simply using the method queryParam(key,value);
+      pathParam() if we want to add any path parameters to the call it looks like https://www.someAPI.com/employee/get/123
+                  here 123 is a parameter some employee id to fetch. it works for filtering 
+                  to add path parameter we need to add pathParam(key,value); method and in get()
+                  get(https://www.someAPI.com/employee/get/{key}); We need to modify the url in this format by key name.
+             
+      Automation plugin: 
+                        io.rest.assured  ->rest-assured
+                        To make a API calls.
+                        com.fasterxml.jackson.core ->jackson-databind
+                        for serialization and deserialization of POJO class to json.       
+      </pre>
+      <pre>
+      <b>POST</b>
+      It is use to create a data in API.
+      RestAssured.baseURI= "https://rahulshettyacademy.com";
+        String response =  given().queryParam("key","qaclick123").header("Content-Type","application/json")
+                .body("""
+                        {
+                          "location": {
+                            "lat": -38.383494,
+                            "lng": 33.427362
+                          },
+                          "accuracy": 50,
+                          "name": "Frontline house",
+                          "phone_number": "(+91) 983 893 3937",
+                          "address": "29, side layout, cohen 09",
+                          "types": [
+                            "shoe park",
+                            "shop"
+                          ],
+                          "website": "http://google.com",
+                          "language": "French-IN"
+                        }
+                        """)
+                .when().post("maps/api/place/add/json")
+                .then().log().all().assertThat().statusCode(200)
+                .body("scope", equalTo("APP"))
+                .header("server","Apache/2.4.52 (Ubuntu)")
+                .extract().response().asString();
+
+        JsonPath jsonPath = new JsonPath(response);
+       this.place_id = jsonPath.get("place_id");
+        System.out.println(this.place_id);
+        String id = jsonPath.get("id");
+        System.out.println(id);
+      </pre>
+      <pre>
+      <b>PUT</b>
+       given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
+                .body("{\n" +
+                        "\"place_id\":\""+this.place_id+"\",\n" +
+                        "\"address\":\""+this.new_Address+"\",\n" +
+                        "\"key\":\"qaclick123\"\n" +
+                        "}\n")
+                .when().put("maps/api/place/update/json")
+                .then().log().all().assertThat().statusCode(200)
+                .body("msg",equalTo("Address successfully updated"));
+      </pre>
+      <pre>
+      <b>GET</b>
+      String  res = given().log().all().queryParam("key","qaclick123")
+                .queryParam("place_id",this.place_id)
+                .when().get("maps/api/place/get/json")
+                .then().log().all().assertThat().statusCode(200)
+                .extract().response().asString();
+       JsonPath jsonPath = new JsonPath(res);
+        String actualAddrss = jsonPath.get("address");
+        System.out.println(actualAddrss);
+        Assert.assertEquals(actualAddrss,this.new_Address);
+      </pre>
+      <pre>
+      <b>DELETE</b>
+      String  res = given().log().all().queryParam("key","qaclick123")
+                .body("{\n" +
+                        "        \"place_id\":\""+this.place_id+"\"\n" +
+                        "    }")
+                .when().get("maps/api/place/delete/json")
+                .then().log().all().assertThat().statusCode(200)
+                .body("status",equalTo("OK"))
+                .extract().response().asString();
+        JsonPath jsonPath = new JsonPath(res);
+        String status = jsonPath.get("status");
+        System.out.println(status);
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+   <div id="accordionthree">
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Session handling, attaching file to API call, limiting response, handling HTTPS and SpecificationBuilder class
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionthree">
+      <div class="card-body">
+      <pre>
+     <b> Handling HTTPS while ignoring SSL</b> : given().relaxedHTTPSValidation() is a method used to test API over HTTPs but dont want to enforce strict SSL certificate.
+     <b> Session </b>: On same API we need to create a session and by using a session ID we need to pass this sessionID as a parameter to all further API call.
+                We can handle this easily by using SessionFilter class.
+                Ex: SessionFilter session=new SessionFilter();
+                    String response=given().relaxedHTTPSValidation().header("Content-Type","application/json").
+                    body("{\r\n" +
+                   "    \"username\": \"Mandar\",\r\n" +
+                   "    \"password\": \"ABC\"\r\n" +
+                   "}").log().all().filter(session)
+                   .when().post("/rest/auth/1/session").then().log().all().extract().response().asString();
+                   
+                   By above code we are creating a session and storing it in session filter object and further we can use the same object and we can reduce or 
+                   minimize the code of fetching session IDand passing it to other API.
+                   
+                   Usage: given().pathParam("key", "10101").log().all().header("Content-Type","application/json")
+                          .body(JSON data).filter(session)
+                          .when().post("/rest/api/2/issue/{key}/comment")
+                          .then().log().all();
+                          
+                          In above code we are not passing sessionID but we have passed sesssionFilter object which will take care internally.
+       <b> Attaching file to API </b> : We can send the file to API using the multipart method avaiable.
+                                       EX: given().header("X-Atlassian-Token","no-check").filter(session).pathParam("key", "10101")
+                                           .header("Content-Type","multipart/form-data")
+                                           .multiPart("file",new File("jira.txt")).when().
+                                           
+                                           With above code we can attach any file.
+       <b> Limiting the response</b> : On some API we will get a huge response which is not required in this case we can tell to API to limit the data
+                                       and retrieve the specific data which is required.
+                                       We can use queryParam method to limit the data.
+                                       EX : 
+                                       given().filter(session).pathParam("key", "10101")
+                                       .queryParam("fields", "comment")
+                                       .log().all().when().get("/rest/api/2/issue/{key}");
+                                       
+                                       In above code we are not fetching the complete data but we want only the comment data this response will have only comment data in
+                                       JSON form.                                
+      </pre>
+      <pre>
+      <b>Request Specification</b>
+      As seen in above examples there are some pre-requiste things that are reusable or can be use for following api calls.
+      such as the post call pre-requiste can be re-used again for delete or put.
+      reuquest specification helps to store the reusable data for api call in object.
+      Ex: 
+      RequestSpecification reqSpec = new RequestSpecBuilder().setBaseUri("https://www.someAPIcall.com")
+                                         .addQueryParam("key","value")
+                                         .setContentType(ContentType.JSON)
+                                         .build();
+      
+      We can see in above example we have wrapped the API Uri , query param, content type in one object
+      We can also add more data as required and depends on whether it is re-usable or not.
+      How to use it?
+      given().spec(reqSpec).body(json payload)
+      
+      to use it we need to use the spec method after given method and pass the requestSpecification object
+      RequestSpecification givenSpecification = given().spec(reqSpec)
+                                                .body(JSON);
+                                                
+      Here we have taken given requirement as well into a object just of readable purpose and usefull when developing a framework.
+      
+      givenSpecification.when().post("url")
+                        .then().log().all().assertThat().statusCode(200);
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="accordionfour">
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Serialization and Deserialization using POJO
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionfour">
+      <div class="card-body">
+      <pre>
+          We are sending json file or json data as a string to the API call. But we can generate the json payload using java classses.
+          We can achieve this by using POJO concept.
+          the json contract which we have need to be replicated in same way using java classes.
+          EX : 
+          {
+          "name":"Mandar",
+          "employee_id":32323
+          }
+          by using above json payload we need to write java class as below:
+          public class employeInfo           // class name can be anything
+          {
+          private String name;                 // the variables name should be always same as given in json payload
+          private int employee_id;
+          getters and setter methods           // the getter setter name should be proper as per standard.  
+          }
+      </pre>
+      <pre>
+      {
+      "name":"Mandar",
+      "employee_id" : 24332,
+      "phone":[38372,337572]
+      }
+      public class employeInfo            // class name can be anything
+          {
+          private String name;                 // the variables name should be always same as given in json payload
+          private int employee_id;
+          private List&lt;int> phone;           // as per given payload phone should be array of int
+          getters and setter methods           // the getter setter name should be proper as per standard.  
+          }
+      </pre>
+      <pre>
+      {
+      "name":"Mandar",
+      "employee_id" : 24332,
+      "phone":[38372,337572],
+      "address":{
+      "state":"MH"
+      "Pin":"90675"
+      }
+      }
+      public class address              
+      {
+      private String state;
+      private String Pin;
+      getters and setters.
+      }
+      public class employeInfo           // class name can be anything
+          {
+          private String name;                 // the variables name should be always same as given in json payload
+          private int employee_id;
+          private List&lt;int> phone;           // as per given payload phone should be array of int
+          getters and setter methods           // the getter setter name should be proper as per standard. 
+          private address address;          // the object name should be same 
+          }
+      </pre>
+      <pre>
+      {
+        employee[ 
+        {
+        "name":"Mandar",
+        "Org" : "xyz"
+        }
+        ]
+      }
+      
+      public class employeeInfo{
+        private String name;
+        private String Org;
+        getters and setters
+      }
+      public class employeeClass {
+      
+         List&lt;employeeInfo> employee;
+         getters and setters
+      
+      }
+      
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+   <div id="accordionfive">
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Logging API and disabling encoding
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionfive">
+      <div class="card-body">
+      <pre>
+       <b>Simple Logging</b>
+       given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
+                .body("{\n" +
+                        "\"place_id\":\""+this.place_id+"\",\n" +
+                        "\"address\":\""+this.new_Address+"\",\n" +
+                        "\"key\":\"qaclick123\"\n" +
+                        "}\n")
+                .when().put("maps/api/place/update/json")
+                .then().log().all().assertThat().statusCode(200)
+                .body("msg",equalTo("Address successfully updated"));
+                
+        Here in above example we can see we have use log().all() method to print the log and we have to use it
+        on every given when and then. if there are multiple API we have to use it again and again. 
+      </pre>
+      <pre>
+      PrintStream stream = new PrintStream(new FileOutputStream("log.txt"));                    // this will create a txt file
+      RequestSpecification reqSpec = new RequestSpecBuilder().setBaseUri("https://www.someAPIcall.com")
+                                         .addQueryParam("key","value")
+                                         .addFilter(RequestLoggingFilter.logRequestTo(stream))     // this will log all request in above log.txt file
+                                         .addFilter(ResponseLoggingFilter.logRequestTo(stream))    // this will log all response to log.txt file
+                                         .setContentType(ContentType.JSON)
+                                         .build();
+                                         
+     By this approach we don't need to use log().all() every time and can be written one time.
+      </pre>
+      <pre>
+      Disabling encoding:
+                         By default rest-assured will encode all special characters when found and will convert
+                         it into some numerical data which will fail the API call.
+                         We need to disable the encoding by using method.
+                         ex: given().urlEncodingEnabled(false)
+                         This will disable the encoding, this is useful when we are dealing with OAuth.
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+   <div id="accordionsix">
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          OAuth
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionsix">
+      <div class="card-body">
+      <img src="OAuth.JPG"/>
+      <pre>
+      There are two version of OAuth 1.0 and OAuth 2.0
+      OAuth 2.0 is recent updated version.
+      
+      There are different grant types available:
+      This grant types will give access token. 
+            1. Client Credentials: which uses Client ID and Client Secret.
+            2. Password: which uses Username and Password.
+            3. Authentication code: which uses authentication code.
+            
+      the above details are provided by the api contract, when we hit the api will get the access token.
+      This access token are useful for authentication to sub api service.
+      
+      Client credentials and password are used by endto end application which itself uses token based authentication.
+      
+      OAuth Authentication code?
+                If we see on some application when login there are different option available.
+                option as to do login using gmail, facebook etc. this is nothing but OAuth.
+                in above image we can see a client which can be anything like bookmyshow or udemy and manymore will first
+                get the access token from the authentication service wich is nothing but google or facebook any many more
+                this authentication service will give access token for some amount of time like around 2 or 3 hours.
+                with this token client can access other api service within given time.
+                EX: a bank uses a internal authentication service gets the token and then retrieves other api service of the bank.
+               
+      
+      </pre>
+       <br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- jquery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!--owl carousal-->
+<script src="js/owl.carousel.min.js"></script>
+<!--theme script-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
