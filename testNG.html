@@ -391,6 +391,40 @@
     </div>
   </div>
   </div>
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingSeven">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    Parallel Execution using Maven surefire or junit5
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+            <div class="card-body">
+                <pre>
+                Maven surefire plugin :
+                tags : parallel , value = methods
+                Only methods is possible as we are going to use junit (not testng) and we are using bdd cucumber not testng annotation
+                so test are written in feature file not annoted as tag @test.
+                tag : threadCountMethods , value = 10
+                this thread count is needed if we needed to restrict the number of threads.
+                tag : perCoreThreadCount , value = false
+                this will restrict not to calculate number of thread based on number of core or how much thread should run on each core.
+                if we want to use unlimited threads then
+                tag : useUnlimitedThreads value= true
+
+                How to run? : use maven command as mvn test which will start execution.
+                <br>
+                using Junit5 :
+                we need to add a separate junit5 properties file
+                and need to add below properties and directly we can through junit5 runner file
+                <br></pre>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- jquery -->
 <script src="js/jquery-2.1.4.min.js"></script>
 <!-- Bootstrap -->
