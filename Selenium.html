@@ -232,7 +232,7 @@
         <div class="card-header" id="headingThree">
             <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Web-driver methods and web-element methods.
+                    Web-driver methods and web-element methods,Select class,Frames,Alerts.
                 </button>
             </h5>
         </div>
@@ -299,6 +299,33 @@
           8. deselectByIndex(int index)
           9. deselectByValue(String value)
           10. deselectByVisibleText(String text)
+      </pre>
+                <br>
+      <pre>
+          Frames:
+          to detect or find the number of frames in webpage we can search for iframe tag in DOM.
+          a frame can have inner frame too. to perform action on element which are present inside frame we need to first
+          switch to the frame and then perform action or else we will get NoSuchElementException
+          there are method with driver class which helps to work wih frames.
+          methods:
+          1. driver.swtichTo().frame(int frameIndex) : if there are mutliple iframe tag we can jump inside the particular index of frame.
+          2. driver.switchTo().frame(String frameName) : provided name of frame we can switch to that frame. attribute will be name.
+          3. driver.swtichTo().frame(WebElement frameElement) : find the element using locator and store it in WebElement object and pass it.
+          4. driver.switchTo().parentFrame() : to move back the parent frame.
+          5. driver.swtichTo().defaultContent() : to jump to the root frame that is main DOM body tag.it wil come out of all frames incase there
+                                                  are inner frames.
+      </pre>
+                <br>
+      <pre>
+          Alerts :
+          if amy alerts are popups after clicking on element, we can handle using selenium build in mechanism.
+          this alerts are javascript based triggered.
+          we can either accept or decline the alerts some alerts accepts only ok or some kind of input.
+          below are methods to work on alerts.
+          1. driver.switchTo().alerts().accept() : this method accept the alert and triggers user action as Yes or ok on alert.
+          2. driver.switchTo().alerts().dismiss() : this method rejects the alert if alerts has cancel button.
+          3. driver.switchTo().alerts().getText() : if any text contains which shows information of alert box we can capture the text.
+          4. driver.swtichTo().alerts().sendKeys() : this will send inputs to the alerts if available.
       </pre>
             </div>
         </div>
