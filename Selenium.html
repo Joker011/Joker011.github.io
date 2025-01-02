@@ -160,6 +160,146 @@
                  tag.class
                 div.username
       </pre>
+                <br>
+      <pre>
+       XPath :
+          XML path Language
+          basic format of xpath : //tagName[@attribute='value']
+          There are two different type of xpath.
+          1. Absolute xpath and 2.Relative xpath
+          Absolute xpath : it consist of complete path from root element of DOM
+                           to the desired element.root element is body tag.
+                           always starts with single slash (/)
+          Relative xpath : It will have a dynamic xpath or we can say , it can start
+                          from anywhere in DOM .
+                          always starts with double slash (//)
+       Xpath function :
+          1. starts with
+           //tagName[starts-with(@attribute,'value')]
+          incase the starting letters are static for any attribute but the last part is
+          dynamic
+          //label[starts-with(@id,'message')]
+          2.Contains
+          //tagName[contains(@attribute,'value')]
+          if we need to match string with any part of attribute value
+          //label[contains(@id,'mes')]
+          //a[contains(text(),'signin')]
+          3.text
+          //tagName[text()='visible text']
+          //a[text()='click here']
+          4. ends with
+          //tagName[ends-with(@attribute,'value')]
+          if starting of word/value is dynamic and end of value is static
+          5. and , or
+          //tagName[@attribute='value' and @attribute='value']
+          //tagName[@attribute='value' or @attribute='value']
+          //button[@id='hello' or @id='hola']
+
+    Xpath Axes :
+          1. following :
+                       //tagName[@attribute='value']//following::tagName
+             all following desired tagName after current node till end of DOM can be accessible.
+          2. Ancestor :
+                      //tagName[@attribute='value']//ancestor::tagName
+             all parent and grandparent tagName of current node will be accessible.
+             ancestor-or-self.
+          3. Child :
+                   //tagName[@attribute='value']//child::tagName
+             only the child of current node is accessible. no grandchildren
+          4. preceding :
+                    //tagName[@attribute='value']//preceding::tagName
+             all the required element before the current node till start of DOM will be accessible.
+             preceding-sibling.
+          5. Following Sibling :
+                      //tagName[@attribute='value']//following-sibling::tagName
+          6. Parent :
+                     //tagName[@attribute='value']//parent::tagName
+           only the parent node will be selected
+          7. Self :
+                      //tagName[@attribute='value']//self::tagName
+          8. Descendant :
+                     //tagName[@attribute='value']//descendant::tagName
+          all the children and grandchildren will be accessible.
+          descendant-or-self.
+      </pre>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="accordionthree">
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Web-driver methods and web-element methods.
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionthree">
+            <div class="card-body">
+      <pre>
+          Web Driver methods :
+          this below methods are helpful to interact with browser directly.
+          1. get() : this is used for opening URL.
+          2. getCurrentURL() : it will return the current url.
+          3. getTitle() : it will return the title of the page.
+          4. getPageSource() : it will return the page source ( a complete DOM structure )
+          5. close() : it will close the current tab or browser. if there is only 1 tab then the browser itself gets closed.
+          6. quit() : it will close the browser, even if there are 2 or more tab.
+          7. findElement() : it will return the first webelement that is found or else it will return NoSuchElementException.
+          8. findElements() : it will return the list of webelement, if there is no element found it will return the empty list.
+          9. driver.manage().window().maxmize() : to maximize the browser.
+          10. switchTo() : to swtich to different frames and tab.
+                           switchTo().window(); switchTo.Frame();
+          11. getWindowHandle() : it will return a unique ID for the current tab.
+          12. getWindowHandles() : it will return list of all opened tab,which will be useful for switching.
+      </pre>
+                <br>
+      <pre>
+          Web element methods :
+          the fields or element which we see on the web-page are web-element. they can be located using selenium locators.
+          once the web-element is located we can use below method to perform action on it.
+          1. sendKeys() : this method will send the input as a string a word or sentence to the input field on webpage. it accepts string.
+          2. clear() : this method will clear all the text present in the input field.
+          3. click() : this will help us click on element.
+          4. getAttribute() : this will fetch the value of the required attribute of the element. it will accept the attribute name.
+          5. getCSSVale() : it will return the css value of the element.
+          6. getLocation() : it will return the location of webelement . the top left corner will be the location. returns Point.
+          7. getSize() : it will return the hgt and width of element. returns in Dimension.
+          8. getTagName() : only returns the tag name of element.
+          9. getText() : it will return the text available on the elememt. if it is link or visible text.
+          10. isDisplayed() : returns true or false based on whether element is displayed on webpage or not.
+          11. isEnabled() : returns true or false based on whether element is enabled for action.
+          12. isSelected() : return true or false based on whether element is already selected. mostly used on radio and checkbox.
+          13. submit() : if the current element is within a  form then this method will be submitted to remote server.
+                        and the action reload/changed the webpage this method will be blocked until the page loads completely.
+                        if the element is not within a form it will throw NoSuchElementException
+      </pre>
+                <br>
+      <pre>
+          Select Class:
+          there is dedicated class available in selenium for handling the dropdown. we can also use directly combination of
+          click mechanism to work on dropdown element.
+          this select class helps with extra functionality.
+          basic code :
+          webElement element = driver.findElement(By.xpath("//select[@id='gender']"));
+          Select drp = new Select(element);
+          below are method used for dropdown with select class:
+          1. selectByIndex(int index) : it will accept index of drodown values to be selected.
+          2. selectByValue(String value) : it will select the dropdown value based on value provided. exact name should be provided.
+                                           value is a attribute in select webelement.
+          3. selectByVisibleText(String text) : it will select the dropdown based on text visible , text has to be exact matching.
+          4. isMultiple() : it will return true or false based on whether the dropdown webelement can allow user to select multiple values.
+          5. getOptions() : it will return the all webelement of option present in dropdown. returns the list of webelement which then can be
+                             used to fetch the text using getText() method.
+          6. getFirstSelectedOption() : it will return the first selected dropdown value. returns in a form of webelement.
+          7. getAllSelectedOptions() : return list of webelement of the option selected.
+          8. deselectByIndex(int index)
+          9. deselectByValue(String value)
+          10. deselectByVisibleText(String text)
+      </pre>
             </div>
         </div>
     </div>
