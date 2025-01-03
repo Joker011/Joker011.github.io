@@ -255,6 +255,24 @@
                            switchTo().window(); switchTo.Frame();
           11. getWindowHandle() : it will return a unique ID for the current tab.
           12. getWindowHandles() : it will return list of all opened tab,which will be useful for switching.
+
+          driver.get() and driver.navigate()
+          driver.get() will helps to load the URL and also wait till the page is loaded completely.
+          once the page is loaded it will move to next line of code. it will not maintain any navigation history.
+          driver.navigate() API will have different methods.
+          driver.navigate().To() : this method will also help in opening the URL and it will not wait
+          until the page is loaded completely and maintains the navigation history.
+          apart from To() method there are different methods available:
+          .back() : to navigate back.
+          .forward() : to navigate forward
+          .refresh() : to refresh to current page.
+
+          ways to refresh to page:
+          driver.navigate().refresh();
+          driver.get(URL):
+          driver.navigate().To(URL):
+          driver.sendKeys(Keys.F5);
+
       </pre>
                 <br>
       <pre>
@@ -327,6 +345,122 @@
           3. driver.switchTo().alerts().getText() : if any text contains which shows information of alert box we can capture the text.
           4. driver.swtichTo().alerts().sendKeys() : this will send inputs to the alerts if available.
       </pre>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="accordionFour">
+    <div class="card">
+        <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Wait in selenium.
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFour">
+            <div class="card-body">
+      <pre>
+          Waits :
+          1. implicit wait :
+          this wait will be apply globally in automation framework and applies for all webelement. it will wait for given time before throwing
+          NoSuchElementException exceptions for the webelement.
+          code :
+          driver.manage().timeout().implicitWait(10,TimeUnit.SECONDS);
+          if the element if found after 5 second, then this wait will end as this wait is dynamic.
+          the max time will be set to 10 second with above code.
+          throws : NoSuchElementException
+
+          2.Explicit Wait :
+          This wait applies for a paritcular webelement only, user needs to apply this wait for every element wherever required.
+          this wait once apply code will wait for element until a certain condition is met for max time.
+          code :
+          initialize the wait.
+          WebDriverWait wait = new WebDriverWait(driver,30);
+          add a expected condition:
+          wait.until(ExpectedConditions.visiblityOfElementLocated(By.xpath(""))).click();
+          it will wait for visibility of element, once it is visible it will click on it.  it will max for 30 seconds.
+          if the time exceeds and element is not found it throws TimeOutException.
+          it will continously checks for the element for 30 seconds.
+          there are mutliple condition available:
+          A.alertIsPresent();
+          B.elementSelectionStateToBe();
+          C.elementToBeClickable();
+          D.elementToBeSelected();
+          E.frameToBeAvailableAndSwitchToIt();
+          F.invisibilityOfTheElementLocated();
+          E.invisibilityOfElementWithText();
+          G.presenceOfAllElementLocatedBy();
+          H.presenceOfElementLocated();
+          I.textToBePresentLocated();
+          J.titleIs();
+          K.titleContains();
+          L.visibilityOf();
+          M.visibilityOfAllElements();
+
+          3. Fluent Wait :
+          This is very similar to explicit wait, the difference is fluent wait allows extra methods to add polling every and
+          add ignoring exception.
+          code:
+          initialize the wait
+          FluentWait wait = new FluentWait(driver);
+          wait.withTimeout(30,TimeUnit.SECONDS)
+          .pollingEvery(10,TimeUnit.SECONDS)
+          .ignoring(ElementClickInterceptedException.class);
+
+          use
+          wait.until(ExpectedConditions.visibilityOfElement(By.xpath(""))).click();
+          or we can combine multiple condition too.
+          wait.until(ExpectedConditions.add(ExpectedConditions.visibilityOfElement(By.xpath("")),
+          ExpectedConditions.elementToBeClickable(By.xpath("")));
+      </pre>
+                <br>
+      <pre>
+          JavaScript executor :
+          This allows javascript code to execute within browser.
+          there are some action which cannot be performed with webdriver script, in this case we can use of javascript executor.
+          it also helps in direct interaction with the DOM.
+          Code:
+          JavaScriptExecutor js = (JavaScriptExecutor) driver;
+
+          To scroll till webelement.
+          js.executeScript("arguements[0].scrollIntoView(true);",driver.findElement(By.xpath("")));
+          sending text :
+          js.executeScript("arguements[0].value='tezt to send';",driver.findElement(By.xpath("")));
+          retrieving title :
+          String title = (String)js.executeScript("return document.title;");
+          scroll till bottom of page:
+          js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+          highlight the element:
+          js.executeScript("arguements[0].style.border='3px solid red'",driver.findElement(By.xpath("")));
+      </pre>
+                <br>
+       <pre>
+           Taking a screenshot:
+           we need to take help from TakesScreenshot interface to take the screenshot and store it as a File.
+           also we need to add dependency in pom file as commons.io
+
+           File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+           FileUtils.copyFile(screenshot, new File("screenshot.png"));
+
+           To capture specific element can be done using below code:
+           no need to use TakesScreenshot interface.
+           File screenshot = element.getScreenshotAs(OutputType.FILE);
+           FileUtils.copyFile(screenshot, new File("screenshot.png"));
+       </pre>
+                <br>
+       <pre>
+           Handle Authentication popup.
+           There are some page when lauched they directly shows a popup for accepting username and password.
+           this popup whithout interacting with element can be handle direclty we link.
+           link :
+           https://www.authwebpag.com
+           we need to modify the link by adding username and password:
+           the modified link will be:
+           https://username:password@www.authwebpag.com
+       </pre>
             </div>
         </div>
     </div>
